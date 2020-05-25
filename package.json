@@ -1,0 +1,16 @@
+{
+  "name": "currency_api",
+  "version": "1.0.0",
+  "description": "currency_api",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build --public-url . index.html"
+  },
+  "author": "TC-Code",
+  "license": "ISC",
+  "browserslist": "last 1 chrome versions",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}

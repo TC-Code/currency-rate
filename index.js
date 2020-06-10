@@ -1,1 +1,1 @@
-console.log('hello');
+import getData from './convertData.js';

@@ -103,6 +103,17 @@ async function currencyData() {
   });
   console.log(dataArr);
 
+  // Actual single currency rate
+  const EUR = document.querySelector('.EUR span');
+  const USD = document.querySelector('.USD span');
+  const GBP = document.querySelector('.GBP span');
+
+  EUR.textContent = dataArr[dataArr.length - 1][1];
+  USD.textContent = dataArr[dataArr.length - 1][2];
+  GBP.textContent = dataArr[dataArr.length - 1][3];
+
+  //
+
   const xDate = [];
   const yEUR = [];
   const yUSD = [];

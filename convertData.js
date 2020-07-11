@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { getData } from './getData.js';
 import Chart from 'chart.js';
 
@@ -126,3 +127,8 @@ async function currencyData() {
 
   return [xDate, yEUR, yUSD, yGBP];
 }
+
+// Updating search - Date Range Picker
+$('#reportrange').on('apply.daterangepicker', function (ev, picker) {
+  chart();
+});

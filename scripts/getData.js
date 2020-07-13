@@ -39,6 +39,8 @@ $(function () {
     {
       startDate: start,
       endDate: end,
+      opens: 'center',
+      drops: 'up',
       ranges: {
         'In 2020': [moment('2020-01-01'), moment()],
         'Last 30 Days': [moment().subtract(29, 'days'), moment()],

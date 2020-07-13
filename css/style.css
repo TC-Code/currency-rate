@@ -12,10 +12,47 @@ body {
   margin: 0 auto;
 }
 
+header {
+  grid-area: header;
+}
+
+.results {
+  grid-area: results;
+}
+
+.latestRates {
+  grid-area: latestRates;
+}
+
+#reportrange {
+  grid-area: reportrange;
+}
+
+footer {
+  grid-area: footer;
+}
+
 .container {
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header header'
+    'results results'
+    'reportrange reportrange'
+    'footer footer';
   position: relative;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+header .title {
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 20px;
 }
 
 header .time {
@@ -23,15 +60,30 @@ header .time {
   padding: 20px 20px 20px 20px;
 }
 
+.chart {
+  grid-area: chart;
+}
+
+.latestRates {
+  grid-area: latestRates;
+}
+
 .results {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'chart latestRates';
 }
 
 .chart {
   width: 35vw;
-  margin-bottom: 20px;
+  margin: 0 auto;
+}
+
+.latestRates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .EUR,
@@ -39,6 +91,7 @@ header .time {
 .GBP {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
   padding: 30px;
 }
@@ -46,30 +99,28 @@ header .time {
 .EUR span,
 .USD span,
 .GBP span {
+  width: 120px;
   padding-left: 20px;
 }
 
 .EUR::before {
   content: '';
-  background-image: url('/images/Flag_of_Europe.webp');
-  background-size: 100px 50px;
-  display: inline-block;
-  width: 100px;
-  height: 50px;
+  background-image: url('/images/Flag_of_Europe.jpg');
 }
 
 .USD::before {
   content: '';
-  background-image: url('/images/Flag_of_the_United_States.webp');
-  background-size: 100px 50px;
-  display: inline-block;
-  width: 100px;
-  height: 50px;
+  background-image: url('/images/Flag_of_the_United_States.jpg');
 }
 
 .GBP::before {
   content: '';
-  background-image: url('/images/Flag_of_the_United_Kingdom.webp');
+  background-image: url('/images/Flag_of_the_United_Kingdom.jpg');
+}
+
+.USD::before,
+.GBP::before,
+.EUR::before {
   background-size: 100px 50px;
   display: inline-block;
   width: 100px;
@@ -82,5 +133,53 @@ header .time {
   padding: 5px 10px;
   border: 1px solid #ccc;
   width: 30%;
-  margin: 0 auto;
+  margin: 20px auto;
+}
+
+footer {
+  text-align: center;
+  padding: 10px 10px;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  header .time {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .results {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'latestRates'
+      'chart';
+  }
+  .chart {
+    width: 80vw;
+    margin: 0 auto;
+  }
+
+  .latestRates {
+    padding: 20px 0 20px 0;
+  }
+
+  .EUR,
+  .USD,
+  .GBP {
+    padding: 10px;
+  }
+
+  .USD::before,
+  .GBP::before,
+  .EUR::before {
+    background-size: 70px 35px;
+    display: inline-block;
+    width: 70px;
+    height: 35px;
+  }
+
+  #reportrange {
+    width: 80vw;
+  }
 }
